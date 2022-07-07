@@ -4,16 +4,16 @@ from wtforms.validators import DataRequired,Email,Length, ValidationError
 
 
 class LoginForm(FlaskForm):
-    mail=StringField('mail',validators=[DataRequired(),Email()])
-    mdp=PasswordField('mdp',validators=[DataRequired(),Length(min=4,max=8)])
+    mail=StringField('eMail',validators=[DataRequired(),Email()])
+    mdp=PasswordField('Mot de passe',validators=[DataRequired(),Length(min=4,max=8)])
     btn=SubmitField("Se connecter")
 
 
 
 class RegisterForm(FlaskForm):
-    pseudo= StringField('name', validators=[DataRequired(),Length(min=4,max=10)])
-    mail=StringField('mail', validators=[DataRequired(),Email()])
-    mdp=PasswordField('mdp',validators=[DataRequired(),Length(min=4,max=8)])
+    pseudo= StringField('Pseudo', validators=[DataRequired(),Length(min=4,max=10)])
+    mail=StringField('eMail', validators=[DataRequired(),Email()])
+    mdp=PasswordField('Mot de passe',validators=[DataRequired(),Length(min=4,max=8)])
     btn=SubmitField('Creer compte')
 
     def insertData(self):
@@ -23,9 +23,9 @@ class RegisterForm(FlaskForm):
 
 
 class ModalForm(FlaskForm):
-    pseudo= StringField('name', validators=[DataRequired(),Length(min=4,max=10)])
-    mail=StringField('mail',validators=[DataRequired(),Email()])
-    mdp=PasswordField('mdp',validators=[DataRequired(),Length(min=4,max=8)])
+    pseudo= StringField('Pseudo', validators=[DataRequired(),Length(min=4,max=10)])
+    mail=StringField('eMail',validators=[DataRequired(),Email()])
+    mdp=PasswordField('Mot de passe',validators=[DataRequired(),Length(min=4,max=8)])
     btn=SubmitField("Enregistrer")
 
 

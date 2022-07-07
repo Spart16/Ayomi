@@ -4,12 +4,35 @@
      {% block body%}   
 
        <div class="container">
+                  <div class="row">
+                      <nav>
+                      <ul> 
+                         <li><a href="{{url_for('login')}}">login</a></li>    
+                      </ul>
+                  </nav>
+                
+               </div>
+
               <div class="row">
-                <h1>S'inscrire</h1> 
+                  {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    
+                    {% for category, message in messages %}
+
+                       <div class="alert alert-{{ category }}" role="alert">
+                                {{ message }}   
+                        </div>
+                    {% endfor %}
+                
+                  {% endif %}
+                {% endwith %}
               </div>
 
               <div class="row">
-              	  <form action="" method="post">
+                <h1>S'inscrire</h1> 
+              </div>
+              <div class="row">
+              	  <form action="" method="post" class="needs-validation" novalidate>
               	         {{ form.hidden_tag() }}
               	  	 <div class="form-group">
               	  	 	{% for error in form.pseudo.errors %}
@@ -18,6 +41,8 @@
 
               	  	 	 {{form.pseudo.label(class="form-label")}}
               	  	 	 {{form.pseudo(class="form-control")}}
+                           
+
               	  	 </div>
 
               	  	  <div class="form-group">
@@ -27,7 +52,7 @@
               	        {% endfor%}
 
               	  	 	 {{form.mail.label(class="form-label")}}
-              	  	 	 {{form.mail(class="form-control")}}
+              	  	 	 {{form.mail(class="form-control ")}}
               	  	 </div>
 
               	  	  <div class="form-group">

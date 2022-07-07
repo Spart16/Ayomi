@@ -3,6 +3,21 @@
      {% block body%}   
 
          <div class="container">
+
+               <div class="row">
+                  <div class="col">
+              
+                      <a href="{{url_for('logout')}}">Deconnexion</a> 
+                                     
+                  </div>
+
+                   <div class="col">
+                     User connected: {{session['user']['email'] if session['user']}}
+                   </div>
+                  <hr>
+               </div>
+               <br>
+               <br>
                <div class="row">
 
                   <div class="col-sm">
@@ -20,8 +35,8 @@
                         </button>
                     
                   </div>
+                    <div class="row">
 
-            
                </div>
                 
 
@@ -72,14 +87,29 @@
                               </div>
 
                       </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                      </div>
+                     
                     </div>
                   </div>
                 </div>
             </div>
+
+            <div class="row">
+
+                 {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    
+                    {% for category, message in messages %}
+
+                       <div class="alert alert-{{ category }}" role="alert">
+                                {{ message }}   
+                        </div>
+                    {% endfor %}
+                
+                  {% endif %}
+                {% endwith %}
+              
+            </div>
+          </div>
 
      {% endblock body%}
 
