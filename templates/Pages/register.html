@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html'%}
+
+    
+     {% block body%}   
+
+       <div class="container">
+              <div class="row">
+                <h1>S'inscrire</h1> 
+              </div>
+
+              <div class="row">
+              	  <form action="" method="post">
+              	         {{ form.hidden_tag() }}
+              	  	 <div class="form-group">
+              	  	 	{% for error in form.pseudo.errors %}
+                      			 {{error}}
+              	        {% endfor%}
+
+              	  	 	 {{form.pseudo.label(class="form-label")}}
+              	  	 	 {{form.pseudo(class="form-control")}}
+              	  	 </div>
+
+              	  	  <div class="form-group">
+
+              	  	  	{% for error in form.mail.errors %}
+                      			 {{error}}
+              	        {% endfor%}
+
+              	  	 	 {{form.mail.label(class="form-label")}}
+              	  	 	 {{form.mail(class="form-control")}}
+              	  	 </div>
+
+              	  	  <div class="form-group">
+
+                          {% for error in form.mdp.errors %}
+                      			 {{error}}
+              	          {% endfor%}
+
+              	  	 	 {{form.mdp.label(class="form-label")}}
+              	  	 	 {{form.mdp(class="form-control")}}
+              	  	 </div>
+              	  	     <br>
+              	  	    {{form.btn(class="btn btn-primary")}}
+
+              	  </form>
+
+              </div>
+
+         </div>
+
+     {% endblock body%}
+
+
+
+     
