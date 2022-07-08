@@ -1,0 +1,15 @@
+cloner le projet en local:
+#git clone https://github.com/Spart16/Ayomi.git
+
+Commande pour lancer l'application:
+#docker-compose up 
+recuperer l'adresse suivante et lancer dans un navigateur
+http://172.20.0.1:5000  ou localhost:5000
+
+En cas de soucis avec le port:
+ editer le fichier docker-compose.yml pour changer le port
+Exemple: nano docker-compose.yml
+
+  Avant :port: 5000:5000
+  Apres changement du :port: 8080:5000 
+
